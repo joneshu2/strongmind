@@ -1,0 +1,23 @@
+# Author: Hunter Jones
+# Resources
+# Obsolete version element src: https://docs.docker.com/reference/compose-file/version-and-name/
+# 
+
+
+services:
+  # flask-app name of service
+  flask-app:
+    container_name: pizza-container_flask-app
+    # Indicate Dockerfile-dev used for local instance
+    build:
+        context: .
+        dockerfile: Dockerfile-dev
+    # Use stdin_open with tty for interaction
+    stdin_open: true
+    # Keeps container running with tty set to true
+    tty: true
+    ports:
+      - 8080:8080
+    # Mount local dir to docker conatiner as volume
+    volumes:
+      - .:/app

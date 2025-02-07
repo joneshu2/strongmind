@@ -1,0 +1,7 @@
+flask
+gunicorn
+Flask-Failsafe
+eventlet
+cryptography
+psycopg2-binary
+bcrypt

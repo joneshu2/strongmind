@@ -53,6 +53,8 @@ This is a list of technologies used across the entire application.
   - SQL: Specifics **Pending**
 
 3. **Tools/Services**
+  - GitHub
+  - Docker Desktop
   - Docker
   - Docker Hub
   - Docker Build Cloud
@@ -61,6 +63,10 @@ This is a list of technologies used across the entire application.
 
 ## Instructions
 Detailed instructions on how to build, run, and test locally.
+
+### Before You Get Started
+- pizza-app is the top level directory for running the containerized application
+- Other directories at this level are for configuration and independent projects
 
 ### Build Locally
 Instructions on how to build locally:
