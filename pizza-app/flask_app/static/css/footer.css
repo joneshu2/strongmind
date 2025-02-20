@@ -1,0 +1,11 @@
+/* | Styling for Footer | */
+.footer-section {
+  width: 100vw;
+  background-color: var(--footer-background-color);
+}
+
+.footer-section .footer-text {
+  color: var(--primary-font-color);
+  text-align: center;
+  text-justify: auto;
+}

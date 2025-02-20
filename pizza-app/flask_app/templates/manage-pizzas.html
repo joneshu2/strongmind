@@ -1,0 +1,63 @@
+{% extends 'shared/layout.html' %}
+
+{% block extracss %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/manage-pizzas.css') }}" type="text/css">
+{% endblock %}
+
+{% block extrajs %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+  integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/manage-pizzas.js') }}" defer></script>
+{% endblock %}
+
+{% block maincontent %}
+<!-- Section will fill in main content section of Manage Pizzas page -->
+<section class="manage-pizzas-section">
+  <h1>Manage Pizzas</h1>
+</section>
+
+<section class="manage-pizzas-section">
+  <!-- Contains pizza creation form -->
+  <form id="pizza-creation-form" class="pizza-creation-form-content" method="post" action="/processpizzacreation">
+    <!-- Input Field for Pizza name -->
+    <input id="pizza-name-input" class="pizza-creation-input" name="pizza-name-input" type="text"
+      title="Enter a Pizza Name" placeholder="Your Pizza Name" value="" required maxlength="50" />
+
+    <!-- Button field for submitting pizza creation request -->
+    <button id="pizza-creation-submit" name="pizza-creation-submit" class="pizza-creation-input pizza-creation-button"
+      type="submit" title="Add Pizza" value="pizza-creation-submit">Create Pizza</button>
+  </form>
+</section>
+
+<section class="manage-pizzas-section">
+  <h2>Current Pizzas</h2>
+  {% if current_pizzas != {} %}
+
+  <ul id="pizzas-list" class="pizzas-list">
+    {% for pizza_id, pizza_info in current_pizzas.items() %}
+
+    <!-- List each Pizza item with a delete button -->
+    <li class="pizza-item">
+      <!-- The Pizza name -->
+      <h3>{{pizza_info['pizza_name']}}</h3>
+
+      <!-- Individual Pizza management link -->
+      <a class="pizza-manage-link" href="/manage-pizzas/{{pizza_id}}"
+        title="{{pizza_info['pizza_name']}} Management Page">Manage</a>
+
+      <!-- Pizza button to delete item -->
+      <button id="pizza-delete-button-{{pizza_id}}" class="pizza-button delete-button"
+        name="pizza-delete-button-{{pizza_id}}" type="button" title="Delete Pizza"
+        onclick='deletePizza("{{pizza_id}}")'>Delete</button>
+    </li>
+
+    {% endfor %}
+
+  </ul>
+  {% else %}
+  <h3> No Pizzas Created </h3>
+  {% endif %}
+</section>
+
+{% endblock %}

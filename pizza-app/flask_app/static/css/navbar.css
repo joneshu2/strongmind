@@ -1,0 +1,19 @@
+/* | Styling for Navbar | */
+.navbar-section {
+  width: 100vw;
+  height: 14vh;
+  background-color: var(--primary-accent-color);
+  color: var(--primary-font-color);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-section .navbar-link {
+  text-decoration: none;
+}
+
+.navbar-section a:hover {
+  opacity: 60%;
+}

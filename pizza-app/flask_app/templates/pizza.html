@@ -1,0 +1,74 @@
+{% extends 'shared/layout.html' %}
+
+{% block extracss %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pizza.css') }}" type="text/css">
+{% endblock %}
+
+{% block extrajs %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+  integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/pizza.js') }}" defer></script>
+{% endblock %}
+
+{% block maincontent %}
+<!-- Section will fill in main content section of Individual Pizza page -->
+<section class="pizza-section">
+  <h1>Manage the Toppings for this Pizza Masterpiece</h1>
+</section>
+
+<section class="pizza-section">
+  <h2>Current Toppings</h2>
+  {% if current_toppings != {} %}
+
+  <ul id="current-toppings-list" class="toppings-list">
+    {% for topping_id, topping_info in current_toppings.items() %}
+
+    <!-- List each topping item with a remove button -->
+    <li class="topping-item">
+      <!-- The Topping name -->
+      <h1>{{topping_info['topping_name']}}</h1>
+
+      <!-- Topping button to remove item -->
+      <button id="topping-remove-button-{{topping_id}}" class="topping-button remove-button"
+        name="topping-remove-button-{{topping_id}}" type="button" title="Remove Topping"
+        onclick='removeTopping("{{topping_id}}", "{{current_pizza_id}}")'>Remove</button>
+    </li>
+
+    {% endfor %}
+
+  </ul>
+  {% else %}
+  <h3> No Toppings Added to Pizza </h3>
+  {% endif %}
+
+</section>
+
+<section class="pizza-section">
+  <h2>Available Toppings</h2>
+  {% if available_toppings != {} %}
+
+  <ul id="available-toppings-list" class="toppings-list">
+    {% for topping_id, topping_info in available_toppings.items() %}
+
+    <!-- List each topping item with an add button -->
+    <li class="topping-item">
+      <!-- The Topping name -->
+      <h1>{{topping_info['topping_name']}}</h1>
+
+      <!-- Topping button to add item -->
+      <button id="topping-add-button-{{topping_id}}" class="topping-button add-button"
+        name="topping-add-button-{{topping_id}}" type="button" title="Add Topping"
+        onclick='addTopping("{{topping_id}}", "{{current_pizza_id}}")'>Add</button>
+    </li>
+
+    {% endfor %}
+
+  </ul>
+  {% else %}
+  <h3> No Toppings Added to Pizza </h3>
+  {% endif %}
+
+</section>
+
+{% endblock %}

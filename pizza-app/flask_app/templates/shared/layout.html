@@ -1,30 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Pizza Management Application</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}" type="text/css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}" type="text/css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}" type="text/css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" type="text/css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}" type="text/css">
+  {% block extracss %}{% endblock %}
+  {% block extrajs %}{% endblock %}
 </head>
 
-<body>
+<!-- Use body element as container for flexbox -->
+
+<body class="layout-container">
 
   <!-- Header Content -->
-  <header>Header Content Here
+  <header class="header-section">
+    <h1 class="header-text">StrongPizza</h1>
   </header>
 
   <!-- Navbar Content -->
-  <nav>Navbar Content Here
+  <nav class="navbar-section">
+    <a class="navbar-link" href="/home" title="Home">Home</a>
+    {% if user_name == 'Unknown' %}
+    <a class="navbar-link" href="/login">Login</a>
+    {% else %}
+    {% if user_role == 'owner' %}
+    <a class="navbar-link" href="/manage-toppings">Manage Toppings</a>
+    {% else %}
+    <a class="navbar-link" href="/manage-pizzas">Manage Pizzas</a>
+    {% endif %}
+    <a class="navbar-link" href="/logout">Logout</a>
+    {% endif %}
   </nav>
 
   <!-- Main Content -->
-  <main>
+  <main class="main-section">
     {% block maincontent %}{% endblock %}
   </main>
 
   <!-- Footer Content -->
-  <footer>
-    <p>&copy; 2025 Hunter Jones</p>
+  <footer class="footer-section">
+    <p class="footer-text">&copy; 2025 Hunter Jones</p>
   </footer>
 
 </body>

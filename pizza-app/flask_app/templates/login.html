@@ -1,0 +1,31 @@
+{% extends 'shared/layout.html' %}
+
+{% block extracss %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}" type="text/css">
+{% endblock %}
+
+{% block extrajs %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+  integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/login.js') }}" defer></script>
+{% endblock %}
+
+{% block maincontent %}
+<!-- Section will fill in main content section of login page-->
+<section class="login-section">
+  <!-- Contains login form -->
+  <form id="login-form" class="login-form-content">
+    <!-- Input field for username -->
+    <input id="login-username-input" class="login-input" name="login-username-input" type="text"
+      title="Enter Your Username" placeholder="Your Username" value="" required />
+    <!-- Input field for password -->
+    <input id="login-password-input" class="login-input" name="login-password-input" type="password"
+      title="Enter Your Password" placeholder="Your Password" value="" required />
+    <!-- Button field for submitting -->
+    <button id="login-submit" name="login-submit" class="login-input login-button" type="submit" title="Submit Login"
+      value="login-submit">Login</button>
+  </form>
+</section>
+
+{% endblock %}

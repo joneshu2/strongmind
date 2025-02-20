@@ -1,0 +1,29 @@
+/* | Root selector for global variables | */
+:root {
+  --primary-font-color: #000; /* Black */
+  --secondary-font-color: #FFF; /* White */
+
+  --primary-background-color: #FAF9F6; /* Off White */
+  --secondary-background-color: #545454; /* Dark Grey */
+  --footer-background-color: #455A64; /* Blue Grey */
+
+  --primary-accent-color: #FFA500; /* Orange */
+  --secondary-accent-color: #8A00C2; /* Purple */
+}
+
+/* | Default body styling | */
+body {
+  padding: 0;
+  margin: 0;
+  /*min-height: 100%;*/
+  font-size: 1rem;
+}
+
+/* | Styling for layout of main page elements | */
+.layout-container {
+  display: flex; /* Main elements in body become flex items */
+  flex-direction: column;
+  min-height: 100%;
+  flex-wrap: nowrap;
+  background-color: var(--primary-background-color);
+}

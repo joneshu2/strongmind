@@ -1,7 +1,6 @@
 """
 Author: Hunter Jones
 """
-
 import os
 from flask_app import create_app
 

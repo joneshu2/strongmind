@@ -1,0 +1,19 @@
+/* | Styling for Manage Toppings Page | */
+.manage-toppings-section {
+  width: 80vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.toppings-list {
+  display: flex;
+  list-style-type: none;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toppings-list .topping-item {
+  margin: auto 2vw;
+}

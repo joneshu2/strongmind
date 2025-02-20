@@ -1,0 +1,15 @@
+/* | Styling for Manage Pizzas Page| */
+.manage-pizzas-section {
+  width: 80vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pizza-manage-link {
+  display: inline-block;
+  background-color: var(--primary-accent-color);
+  border: 1px solid #000;
+  color: var(--primary-font-color);
+  text-align: center;
+  text-decoration: none;
+}

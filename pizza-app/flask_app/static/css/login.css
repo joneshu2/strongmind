@@ -1,0 +1,26 @@
+/* | Styling for Login Page | */
+
+/* Styles the Login section */
+.login-section {
+  max-width: 80vw;
+  width: 60vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.login-input {
+  width: 100%;
+  height: 5vh;
+  margin: 2% 0;
+  text-align: left;
+  text-justify: auto;
+}
+
+#login-submit {
+  height: 6vh;
+  background-color: #1DA1F2; /* Light Blue */
+  color: #FFF; /* White */
+  font-size: 1.1rem;
+  text-align: left;
+  text-justify: auto;
+}

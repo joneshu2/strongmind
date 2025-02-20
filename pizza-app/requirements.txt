@@ -4,4 +4,5 @@ Flask-Failsafe
 eventlet
 cryptography
 psycopg2-binary
+cryptography
 bcrypt

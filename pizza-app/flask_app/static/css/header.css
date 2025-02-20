@@ -1,0 +1,12 @@
+/* | Styling for Footer | */
+.header-section {
+  width: 100vw;
+  height: 16vh;
+  background-color: var(--secondary-accent-color);
+}
+
+.header-section .header-text {
+  color: var(--primary-font-color);
+  text-align: center;
+  text-justify: auto;
+}

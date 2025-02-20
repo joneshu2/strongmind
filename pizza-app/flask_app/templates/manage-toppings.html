@@ -1,0 +1,60 @@
+{% extends 'shared/layout.html' %}
+
+{% block extracss %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/manage-toppings.css') }}" type="text/css">
+{% endblock %}
+
+{% block extrajs %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+  integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/manage-toppings.js') }}" defer></script>
+{% endblock %}
+
+{% block maincontent %}
+<!-- Section will fill in main content section of Manage Toppings page -->
+<section class="manage-toppings-section">
+  <h1>Manage Toppings</h1>
+</section>
+
+<section class="manage-toppings-section">
+  <!-- Contains topping creation form -->
+  <form id="topping-creation-form" class="topping-creation-form-content" method="post" action="/processtoppingcreation">
+    <!-- Input Field for Topping name -->
+    <input id="topping-name-input" class="topping-creation-input" name="topping-name-input" type="text"
+      title="Enter a Topping Name" placeholder="Your Topping Name" value="" required maxlength="50" />
+
+    <!-- Button field for submitting topping creation request -->
+    <button id="topping-creation-submit" name="topping-creation-submit"
+      class="topping-creation-input topping-creation-button" type="submit" title="Add Topping"
+      value="topping-creation-submit">Create Topping</button>
+  </form>
+</section>
+
+<section class="manage-toppings-section">
+  <h2>Current Toppings</h2>
+  {% if current_toppings != {} %}
+
+  <ul id="toppings-list" class="toppings-list">
+    {% for topping_id, topping_info in current_toppings.items() %}
+
+    <!-- List each topping item with a delete button -->
+    <li class="topping-item">
+      <!-- The Topping name -->
+      <h1>{{topping_info['topping_name']}}</h1>
+
+      <!-- Topping button to delete item -->
+      <button id="topping-delete-button-{{topping_id}}" class="topping-button delete-button"
+        name="topping-delete-button-{{topping_id}}" type="button" title="Delete Topping"
+        onclick='deleteTopping("{{topping_id}}")'>Delete</button>
+    </li>
+
+    {% endfor %}
+
+  </ul>
+  {% else %}
+  <h3> No Toppings Added </h3>
+  {% endif %}
+</section>
+
+{% endblock %}

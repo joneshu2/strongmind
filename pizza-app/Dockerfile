@@ -1,24 +1,20 @@
 # Author: Hunter Jones
 
-# Set base image and instantiate Ubuntu (jammy)
+# Set base image and instantiate Ubuntu (noble=24.04, jammy=22.04)
 FROM ubuntu:22.04
 LABEL maintainer="Hunter Jones <joneshu2@msu.edu>"
 LABEL description="Docker Image for pizza management application"
 
 # Update and install Ubuntu and install pip
-RUN apt-get update -qq && \
-    apt-get install -y python3-pip vim && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
-# Create app directory and copy over code
+RUN apt update
+RUN apt-get update -qq
+RUN apt -y install python3-pip
+RUN apt -y install vim
 RUN mkdir /app
-WORKDIR /app
 COPY . /app
-
-# Upgrade pip and install python packages and requirements
-RUN pip install --upgrade pip
+WORKDIR /app
 RUN pip install --no-cache-dir -r requirements.txt
+
 
 # Open port 8080 for flask app instead of default 5000 and set environment variable
 EXPOSE 8080
@@ -27,5 +23,7 @@ ENV PORT=8080
 # Set as Production Environment
 ENV FLASK_ENV=production
 
+# Scale workers processes to environments with multiple cores
+# Set timeout to 0 to let Cloud Run handle instant scaling
 # RUN Gunicorn
 CMD exec gunicorn --bind :$PORT --workers 1 --worker-class eventlet --threads 8 --timeout 0 app:app
