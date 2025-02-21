@@ -5,6 +5,11 @@ This project is brought to you by Hunter Jones as part of a StrongMind Full Stac
 
 ## Thought Process
 Thought process behind technical choices **Pending**
+- I decided to use Flask for its lightweight framework with the option to add functionality as I develop.
+- Postgres is the database of choice for its more advanced features, concurrent superiority operations, and scalability.
+- Authentication is implied with multiple roles specified under user stories and routes are restricted to limit login required for access to functions connecting to the database.
+- Cloud Run is a cost effective way to scale a small applicaiton with start from zero minimum instance policies enabled.
+- Docker containerization allows development into an image that can be started in multiple enviroments and cloud providers.
 
 ## Features
 Notable features encompassing the project.
@@ -25,19 +30,36 @@ As a pizza chef you should be able to create new pizza master pieces.
 - It ensures you do not enter duplicate pizzas.
 
 ### Data Persistance
-- Data persistance method and details **Pending**
-
-### Automated Test Suite
-- Automated testing suite is **Pending**
+- Data persistance is handled with a dedicated Google Cloud SQL Postgres instance
 
 ### User Interface
-- Responsive Design **Pending**
+- Responsive Design aspects using viewport and flexbox
 
 ### Deployment
-- Deployment method **Pending**
+- App Deployment method: Google Cloud Run
+- Database Deployment method: Google Cloud SQL
 
 ## How to use
-Instructions on how to use the application as an end user Pending.
+Instructions on how to use the application as an end user.
+
+### As an Owner
+1. Login with credentials
+2. Username: 'pizzamindowner'   Password: 'password1'
+3. Click Manage Toppings link available in navigation bar
+4. Insert a new topping name and click Create Topping button to add a new topping
+5. From Current Toppings section click Delete button to remove a topping form the available options
+6. Click Logout from navigation bar to remove current session credentials
+
+### As a Chef
+1. Login with credentials
+2. Username: 'pizzamindchef'    Password: 'password2'
+3. Click Manage Pizzas link available in navigation bar
+4. Insert a new pizza name and click Create Pizza button to add a new pizza
+5. Select Delete button to remove the pizza
+6. Select Manage button to navigate to the individual pizza page
+7. Under Available Toppings section select the Add button next to a topping you would like to add
+8. Under Current Toppings section select the Remove button next to a topping you would like to remove
+9. Click logout from navigation bar to remove current session credentials
 
 ## Technologies
 This is a list of technologies used across the entire application.
@@ -50,34 +72,29 @@ This is a list of technologies used across the entire application.
   - Flask
 
 2. **Database**
-  - SQL: Specifics **Pending**
+  - SQL: Postgres
+  - Connector: psycopg2
 
 3. **Tools/Services**
   - GitHub
   - Docker Desktop
   - Docker
-  - Docker Hub
-  - Docker Build Cloud
   - Visual Studio Code
-  - Google Cloud Platform: **Pending**
+  - Google Cloud Platform
+  - Google Cloud Run
+  - Google Cloud SQL
+  - Postgres
+  - Postbird
 
 ## Instructions
-Detailed instructions on how to build, run, and test locally.
+Detailed instructions on how to build and run locally.
 
 ### Before You Get Started
 - pizza-app is the top level directory for running the containerized application
 - Other directories at this level are for configuration and independent projects
 
-### Build Locally
+### Build and Run Locally
 Instructions on how to build locally:
-- **Pending**
-
-### Test Locally
-Instructions on how to test locally:
-- **Pending**
-
-### Run Locally
-Instructions on how to run locally:
 - **Pending**
 
 ## Resources

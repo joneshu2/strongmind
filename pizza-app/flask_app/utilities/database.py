@@ -14,7 +14,15 @@ def get_connection():
   Get and return a connection to the database
   """
   try:
-    #conn = psycopg2.connect(host="hostname", database="database", port="port", user="user", password="password")
+    """
+    unix_socket = '/cloudsql/{}'.format("<database_instance_id>")
+    conn = psycopg2.connect(
+      host=unix_socket, 
+      database="strongmind", 
+      user="postgres", 
+      password="<password>"
+      )
+    """
     conn = psycopg2.connect(host="host.docker.internal", database="strongmind", port="5432", user="postgres", password="password")
   except Exception as e:
     print("Exception Encountered: ", e)
