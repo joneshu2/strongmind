@@ -95,7 +95,44 @@ Detailed instructions on how to build and run locally.
 
 ### Build and Run Locally
 Instructions on how to build locally:
-- **Pending**
+#### Download Software
+1. [Download Docker Desktop](https://www.docker.com/get-started/)
+2. [Download Postgres](https://postgresapp.com)
+3. [Download Postbird](https://github.com/paxa/postbird)
+
+#### Clone Repository
+In your terminal navigate to a directory you would like to use and run
+```bash
+git clone https://github.com/joneshu2/strongmind.git
+```
+
+#### Set Up Local Database
+- Make sure your postgres.app is currently running a server
+- Navigate to your postbird applicaiton to use as a graphical manager for quick sql setup.
+- Select the default option and click connect.
+- Select database and choose the option to create a new database named 'strongmind'.
+- Within this database select the query tab to paste in the contents of the db_init.sql file.
+- Click Run Query to populate tables in the correct order and initial users required for testing.
+
+#### Build Application for Local Testing
+- Make sure Docker Desktop is open and initial installation has been followed based on the above guide.
+- Navigate to your directory under strongmind so that
+```bash
+pwd
+```
+displays
+```bash
+strongmind/pizza-app
+```
+with the Dockerfiles and compose.yaml listed inside the directory.
+- From here type the command
+```bash
+docker compose up
+```
+- This will use the compose file to build the dockerfile marked Dockerfile-dev for local testing.
+- Navigate to localhost:8080 in your browser to access the built application.
+- To pause the container navigate to the container image in Docker Desktop and click the square pause button.
+- Delete the container when done by selecting the square to the right of the container name and click delete.
 
 ## Resources
 Resoures used in development will be updated and listed below as the application is developed.
